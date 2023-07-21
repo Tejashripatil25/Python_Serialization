@@ -70,3 +70,106 @@ Default protocol: 4
 3. load(): This method deserializes from an open-like object.
   
 4. loads(): This does deserialization from a string.
+
+### Python Dump Functions
+
+The dump function is used to write a pickled version of the object into a file. The syntax of this function is:
+
+#### Syntax:
+pickle.dump(obj, file, protocol = None, *, fix_imports = True) 
+
+1. The obj is the object to be serialized
+
+2. The file is the file name in which the converted result is to be stored
+
+3. The optional argument protocol defines the protocol to be used while processing the object. We can give any version from 0 to the HIGHEST_PROTOCOL. If not mentioned, the default protocol is used.
+
+4. If the fix_imports is True and protocol is less than 3, then the mapping is done from the new Python 3 names to the old module names used in Python 2. This allows the pickle data stream to be readable with Python 2 version.
+
+Example of Python dump():
+
+import pickle
+
+content='ILOVECODING'
+
+f=open('file.txt','wb')  #opened the file in write and binary mode 
+
+pickle.dump(content,f) #dumping the content in the variable 'content' into the file
+
+f.close() #closing the file
+
+#### Output:
+
+In the file we can see the following information:
+
+€• Œ
+ILOVECODING".
+
+### Python Dumps Function
+
+This function returns the pickled representation of the given data in bytes object form. The syntax of the function is :
+
+#### Syntax:
+pickle.dumps(obj, protocol = None, *, fix_imports = True)
+
+This syntax is similar to the dump() function, except we do not have a file argument here.
+
+#### Example of dumps() in Python:
+
+import pickle
+
+content=[ { 'a':1, 'b':2, 'c':3.0 } ] 
+
+pickle.dumps(content) #dumping the content in the variable 'content' 
+
+#### Output:
+
+b’\x80\x04\x95!\x00\x00\x00\x00\x00\x00\x00]\x94}\x94(\x8c\x01a\x94K\x01\x8c\x01b\x94K\x02\x8c\x01c\x94G@\x08\x00\x00\x00\x00\x00\x00ua.’
+
+### Python Load Function
+
+This function is used to read the information in picked form from a file and reconstruct it into the original form. The syntax of this function is :
+
+#### Syntax:
+pickle.load(file, *, fix_imports = True, encoding = “ASCII”, errors = “strict”)
+
+This function takes the file from which the data has to be read. Other arguments are optional and have a default value. Let us see an example of reading the data we stored in the dump() function example.
+
+#### Example of load() in Python:
+
+f=open('file.txt','rb') #opening the file to read the data in the binary form
+
+pickle.load(f)
+
+#### Output:
+
+‘ILOVECODING’
+
+### Python Loads Function
+
+This function is used to read the pickled representation from an object and returns the reconstructed version. The syntax is:
+
+#### Syntax:
+pickle.loads(bytes_object, *, fix_imports = True, encoding = “ASCII”, errors = “strict”) 
+
+This is similar to the dumps() function except that here we pass the bytes object rather than a normal object.
+
+#### Example of loads() in Python:
+
+import pickle
+
+content = [ { 'a':1, 'b':2, 'c':3.0 } ] 
+
+print ('Before pickling the content is:',content)
+ 
+pickled_content = pickle.dumps(content) #dumping the content into an object 
+ 
+reconstructed_content  = pickle.loads(pickled_content) #loading back the content
+
+print ('After pickling the content is:',reconstructed_content)
+
+#### Output:
+
+Before pickling the content is: [{‘a’: 1, ‘b’: 2, ‘c’: 3.0}]
+
+After pickling the content is: [{‘a’: 1, ‘b’: 2, ‘c’: 3.0}]
