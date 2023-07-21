@@ -50,12 +50,15 @@ We can find these values in the way shown in the below example.
 ### Example of funding the constants of the pickle module:
 
 import pickle
+
 print("Highest protocol: ",pickle.HIGHEST_PROTOCOL)
+
 print("Default protocol: ",pickle.DEFAULT_PROTOCOL)
 
 Output:
 
 Highest protocol: 5
+
 Default protocol: 4
 
 #### This module provides the following four methods:
