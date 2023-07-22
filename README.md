@@ -20,6 +20,8 @@ And the reverse process of converting the byte stream into object form is called
 
 Pickle is a module in Python for serializing and deserializing. It is the faster and simpler choice for this purpose if we do not need any human-readable format. To use this we should first import using the following command.
 
+![image](https://github.com/Tejashripatil25/Python_Serialization/assets/124791646/572b65be-4f6a-48f7-ba88-95ee11acd07c)
+
 #### import pickle
 
 It contains some protocols, the rules that are used to construct and deconstruct objects from/to binary format. This module contains the below five protocol versions:
