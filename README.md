@@ -106,7 +106,6 @@ f.close() #closing the file
 
 In the file we can see the following information:
 
-€• Œ
 ILOVECODING".
 
 ### Python Dumps Function
